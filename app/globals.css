@@ -1,26 +1,254 @@
-@import "tailwindcss";
+/* ===========================
+   GRK Permit Generator
+=========================== */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family:
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+}
+
+body{
+  min-height:100vh;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
+
+.app-wrapper{
+  width:100%;
+  min-height:100vh;
+}
+
+/* ===========================
+   Page
+=========================== */
+
+.page-container{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.header-card{
+  background:#006838;
+  color:#fff;
+  border-radius:18px;
+  padding:35px;
+  text-align:center;
+  margin-bottom:30px;
+  box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.header-card h1{
+  margin:0;
+  font-size:36px;
+}
+
+.header-card p{
+  margin-top:12px;
+  margin-bottom:0;
+  opacity:.9;
+}
+
+/* ===========================
+   Cards
+=========================== */
+
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:30px;
+  margin-bottom:25px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.card h2{
+  margin-top:0;
+  margin-bottom:25px;
+  color:#006838;
+}
+
+/* ===========================
+   Form Grid
+=========================== */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;
+}
+
+.form-group{
+  display:flex;
+  flex-direction:column;
+}
+
+.form-group label{
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+input,
+textarea,
+select{
+  width:100%;
+  padding:14px;
+  border-radius:8px;
+  border:1px solid #d1d5db;
+  transition:.25s;
+  background:#fff;
+}
+
+textarea{
+  resize:vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  outline:none;
+  border-color:#006838;
+  box-shadow:0 0 0 4px rgba(0,104,56,.15);
+}
+
+/* ===========================
+   Read Only
+=========================== */
+
+textarea[readonly]{
+  background:#f3f4f6;
+  cursor:not-allowed;
+  font-weight:600;
+}
+
+/* ===========================
+   Required
+=========================== */
+
+.required{
+  color:#dc2626;
+}
+
+/* ===========================
+   Error
+=========================== */
+
+.error-text{
+  color:#dc2626;
+  margin-top:6px;
+  font-size:14px;
+}
+
+.input-error{
+  border-color:#dc2626;
+}
+
+/* ===========================
+   Signature
+=========================== */
+
+.signature-wrapper{
+  border:2px dashed #cbd5e1;
+  border-radius:10px;
+  overflow:hidden;
+  background:#fff;
+}
+
+/* ===========================
+   Generate Button
+=========================== */
+
+.generate-container{
+  position:sticky;
+  bottom:15px;
+  padding-top:10px;
+}
+
+.generate-btn{
+  width:100%;
+  background:#006838;
+  color:#fff;
+  border:none;
+  border-radius:12px;
+  padding:18px;
+  font-size:18px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.generate-btn:hover{
+  background:#00512c;
+}
+
+.generate-btn:disabled{
+  cursor:not-allowed;
+  opacity:.7;
+}
+
+/* ===========================
+   Notice
+=========================== */
+
+.notice{
+  background:#ecfeff;
+  border:1px solid #99f6e4;
+  border-radius:10px;
+  padding:15px;
+  color:#115e59;
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media(max-width:768px){
+
+.header-card{
+  padding:25px;
+}
+
+.header-card h1{
+  font-size:28px;
+}
+
+.card{
+  padding:20px;
+}
+
+.grid{
+  grid-template-columns:1fr;
+}
+
+.generate-btn{
+  font-size:17px;
+}
+
 }
